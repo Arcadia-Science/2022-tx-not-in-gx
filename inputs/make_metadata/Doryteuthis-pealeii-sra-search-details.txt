@@ -1,0 +1,3 @@
+Search conducted on SRA on 20220930.
+("Doryteuthis pealeii"[Organism] OR Doryteuthis pealeii[All Fields]) AND ("biomol rna"[Properties] AND "platform illumina"[Properties])
+

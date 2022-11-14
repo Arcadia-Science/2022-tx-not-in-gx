@@ -52,7 +52,7 @@ rule sourmash_sketch_tx:
 
 rule calculate_tx_not_in_gx:
     """
-    Use the sourmash CLI to subtract a metagenome sketch from its paired metatranscriptome, retaining metatranscriptome abundances.
+    Use the sourmash CLI to subtract a genome sketch from a transcriptome from the same species, retaining transcriptome abundances.
     Snakemake will auto-parse the wildcard mtx_minus_mgx on the "-minus-" string to back-propagate the correct wildcards to *x_run_accession.
     Providing the accessions in this way limits the number of ways they can combine;
     If TX solved for tx_run_accession and GX solved for gx_run_accession, then snakemake would execute this rule for all combinations of TX and GX.

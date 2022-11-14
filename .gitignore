@@ -1,0 +1,4 @@
+.snakemake
+.Rhistory
+outputs/
+inputs/genomes/

@@ -2,3 +2,4 @@
 .Rhistory
 outputs/
 inputs/genomes/
+notebooks/.ipynb_checkpoints/

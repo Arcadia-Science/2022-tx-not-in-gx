@@ -37,5 +37,6 @@ conda install mamba # install mamba for faster software installation.
 
 ## Papers that inspired this project
 
-https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1873-2
-https://www.biorxiv.org/content/10.1101/2022.09.25.509396v1
+* https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1873-2
+* https://www.nature.com/articles/s41467-022-29748-w
+* In the future: https://www.sciencedirect.com/science/article/pii/S0092867417303446 (by way of https://www.nature.com/articles/nature14668)

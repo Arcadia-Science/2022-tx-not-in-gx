@@ -1,0 +1,29 @@
+tx_run_accession	scientific_name	tx_study_accession	sample_name	sample_description	gx_accession
+SRR18071803	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Axial Nerve Cord	axial_nerve_cord	GCA_023376005.1
+SRR18071788	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Blood	blood	GCA_023376005.1
+SRR18071802	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Brachial Lobe	brachial_lobe	GCA_023376005.1
+SRR18071800	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Buccal Lobe	buccal_lobe	GCA_023376005.1
+SRR18071789	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Buccal Mass	buccal_mass	GCA_023376005.1
+SRR18071798	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Giant Fiber Lobe	giant_fiber_lobe	GCA_023376005.1
+SRR18071787	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Gill	gill	GCA_023376005.1
+SRR18071786	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Heart	heart	GCA_023376005.1
+SRR18071811	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Hepatopancreas	hepatopancreas	GCA_023376005.1
+SRR18071810	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Ink	ink	GCA_023376005.1
+SRR18071809	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Kidney	kidney	GCA_023376005.1
+SRR18071808	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Mantle	mantle	GCA_023376005.1
+SRR18071796	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Optic Lobe early	optic_lobe_early	GCA_023376005.1
+SRR18071797	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Optic Lobe late	optic_lobe_late	GCA_023376005.1
+SRR18071813	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Posterior Salivary Gland	posterior_salivary_gland	GCA_023376005.1
+SRR18071807	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Retina	retina	GCA_023376005.1
+SRR18071790	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Skin FDCI - Dorsal Fin Chromatophore Iridophore layers	skin_fdci_dorsal_fin_chromatophore_iridophore_layers	GCA_023376005.1
+SRR18071791	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Skin MDC - Dorsal Mantle Chromatophore layer	skin_mdc_dorsal_mantle_chromatophore_layer	GCA_023376005.1
+SRR18071792	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Skin MDI - Dorsal Mantle Iridophore layer	skin_mdi_dorsal_mantle_iridophore_layer	GCA_023376005.1
+SRR18071801	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Skin MVC - Ventral Mantle Chromatophore layer	skin_mvc_ventral_mantle_chromatophore_layer	GCA_023376005.1
+SRR18071812	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Skin MVI Ventral Mantle Iridophore layer	skin_mvi_ventral_mantle_iridophore_layer	GCA_023376005.1
+SRR18071799	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Stellate Ganglion	stellate_ganglion	GCA_023376005.1
+SRR18071795	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Subesophageal brain	subesophageal_brain	GCA_023376005.1
+SRR18071806	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Suckers	suckers	GCA_023376005.1
+SRR18071794	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Supraesophageal brain	supraesophageal_brain	GCA_023376005.1
+SRR18071805	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Tentacles	tentacles	GCA_023376005.1
+SRR18071804	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Testes	testes	GCA_023376005.1
+SRR18071793	Doryteuthis pealeii	PRJNA641326	Doryteuthis pealeii Vertical lobe	vertical_lobe	GCA_023376005.1

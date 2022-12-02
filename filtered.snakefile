@@ -8,13 +8,13 @@ GX = metadata['gx_accession'].unique().tolist()             # make gx accession 
 KSIZES = [21, 31, 51]                                       # create a list of k-mer sizes for the workflow
 gx_tmp = metadata['gx_accession'].tolist()
 TX_MINUS_GX = [x + '-minus-' + y for x, y in zip(TX, gx_tmp)]   # create list that binds tx to gx
-
+TX_GX = [x + '-vs-' + y for x, y in zip(TX, gx_tmp)] 
 rule all:
     input: 
         expand("outputs/subtract_sourmash_sketch_describe/{tx_minus_gx}-k{ksize}.csv", tx_minus_gx = TX_MINUS_GX, ksize = KSIZES),
         expand("outputs/gx_sourmash_sketch_describe/{gx_accession}.csv", gx_accession = GX),
         expand("outputs/tx_sourmash_sketch_describe/{tx_run_accession}.csv", tx_run_accession = TX),
-        expand("outputs/map_tx_to_gz/{tx_run_accession}.flagstat", tx_run_accession = TX)
+        expand("outputs/map_tx_to_gx/{tx_gx}.flagstat", tx_gx = TX_GX)
 
 rule download_doryteuthis_genome:
     output: "inputs/genomes/GCA_023376005.1_genomic.fna.gz"
@@ -121,7 +121,7 @@ rule sourmash_sig_describe_subtracted_sketches:
 # This section is for benchmarking only.
 # I need to use the tx fastq files, which the normal workflow won't usually need
 
-rule sourmash_sketch_tx:
+rule download_tx:
     """
     Use fastq-dump to download sequencing data for a given accession.
     Pipe the sequencing data directly to a sketch without writing to disk.
@@ -156,7 +156,7 @@ rule map_tx_to_gx:
         bwt="inputs/genomes/{gx_accession}_genomic.fna.bwt",
         r1="inputs/raw_tx/{tx_run_accession}_1.fastq.gz",
         r2="inputs/raw_tx/{tx_run_accession}_2.fastq.gz",
-    output: "outputs/map_tx_to_gz/{tx_run_accession}.bam"
+    output: "outputs/map_tx_to_gx/{tx_run_accession}-vs-{gx_accession}.bam"
     conda: "envs/bwa.yml"
     shell:'''
     bwa mem {input.gx} {input.r1} {input.r2} | samtools sort -o {output} -
@@ -164,8 +164,8 @@ rule map_tx_to_gx:
 
 
 rule map_tx_to_gx_flagstat:
-    input: "outputs/map_tx_to_gz/{tx_run_accession}.bam"
-    output: "outputs/map_tx_to_gz/{tx_run_accession}.flagstat"
+    input: "outputs/map_tx_to_gx/{tx_run_accession}-vs-{gx_accession}.bam"
+    output: "outputs/map_tx_to_gx/{tx_run_accession}-vs-{gx_accession}.flagstat"
     conda: "envs/bwa.yml"
     shell:'''
     samtools flagstat {input} > {output}

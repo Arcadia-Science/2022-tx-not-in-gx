@@ -12,7 +12,6 @@ TX_MINUS_GX = [x + '-minus-' + y for x, y in zip(TX, gx_tmp)]   # create list th
 rule all:
     input: 
         expand("outputs/subtract_sourmash_sketch_describe/{tx_minus_gx}-k{ksize}.csv", tx_minus_gx = TX_MINUS_GX, ksize = KSIZES),
-        expand("outputs/subtract_sourmash_sketch_filtered_describe/{tx_minus_gx}-k{ksize}.csv", tx_minus_gx = TX_MINUS_GX, ksize = KSIZES),
         expand("outputs/gx_sourmash_sketch_describe/{gx_accession}.csv", gx_accession = GX),
         expand("outputs/tx_sourmash_sketch_describe/{tx_run_accession}.csv", tx_run_accession = TX),
 

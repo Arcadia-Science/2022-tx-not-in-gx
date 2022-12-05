@@ -128,8 +128,8 @@ rule download_tx:
     Using fastq-dump like this dumps both single end and paired end reads into std out, which can then be piped into sourmash sketch
     """
     output: 
-        r1 = "inputs/raw_tx/{tx_run_accession}_1.fastq.gz",
-        r2 = "inputs/raw_tx/{tx_run_accession}_2.fastq.gz"
+        r1 = "inputs/raw_tx/{tx_run_accession}_pass_1.fastq.gz",
+        r2 = "inputs/raw_tx/{tx_run_accession}_pass_2.fastq.gz"
     conda: 'envs/sourmash.yml'
     shell:'''
     fastq-dump --gzip --outdir inputs/raw_tx --skip-technical  --readids --read-filter pass --dumpbase --split-3 --clip {wildcards.tx_run_accession}
@@ -154,8 +154,8 @@ rule map_tx_to_gx:
     input:
         gx="inputs/genomes/{gx_accession}_genomic.fna",
         bwt="inputs/genomes/{gx_accession}_genomic.fna.bwt",
-        r1="inputs/raw_tx/{tx_run_accession}_1.fastq.gz",
-        r2="inputs/raw_tx/{tx_run_accession}_2.fastq.gz",
+        r1="inputs/raw_tx/{tx_run_accession}_pass_1.fastq.gz",
+        r2="inputs/raw_tx/{tx_run_accession}_pass_2.fastq.gz",
     output: "outputs/map_tx_to_gx/{tx_run_accession}-vs-{gx_accession}.bam"
     conda: "envs/bwa.yml"
     shell:'''

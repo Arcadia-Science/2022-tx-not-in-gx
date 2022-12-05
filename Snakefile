@@ -12,8 +12,9 @@ TX_MINUS_GX = [x + '-minus-' + y for x, y in zip(TX, gx_tmp)]   # create list th
 rule all:
     input: 
         expand("outputs/subtract_sourmash_sketch_describe/{tx_minus_gx}-k{ksize}.csv", tx_minus_gx = TX_MINUS_GX, ksize = KSIZES),
+        expand("outputs/subtract_sourmash_sketch_filtered_describe/{tx_minus_gx}-k{ksize}.csv", tx_minus_gx = TX_MINUS_GX, ksize = KSIZES),
         expand("outputs/gx_sourmash_sketch_describe/{gx_accession}.csv", gx_accession = GX),
-        expand("outputs/tx_sourmash_sketch_describe/{tx_run_accession}.csv", tx_run_accession = TX)
+        expand("outputs/tx_sourmash_sketch_describe/{tx_run_accession}.csv", tx_run_accession = TX),
 
 rule download_doryteuthis_genome:
     output: "inputs/genomes/GCA_023376005.1_genomic.fna.gz"
@@ -50,6 +51,17 @@ rule sourmash_sketch_tx:
         sourmash sketch dna -p k=21,k=31,k=51,scaled=100000,abund --name {wildcards.tx_run_accession} -o {output} -
     '''
 
+rule sourmash_sig_filter_tx:
+    """
+    remove hashes of abundance 1 as these are highly likely to be errors
+    """
+    input: "outputs/tx_sourmash_sketch/{tx_run_accession}.sig"
+    output: "outputs/tx_sourmash_sketch_filtered/{tx_run_accession}.sig"
+    conda: 'envs/sourmash.yml'
+    shell:'''
+    sourmash sig filter -m 2 -o {output} {input}
+    '''
+
 rule calculate_tx_not_in_gx:
     """
     Use the sourmash CLI to subtract a genome sketch from a transcriptome from the same species, retaining transcriptome abundances.
@@ -59,7 +71,7 @@ rule calculate_tx_not_in_gx:
     Instead, by binding pairs together in TX_MINUS_GX, only pairs of transcriptomes and genomes are subtracted.
     """
     input:
-        tx_sig = 'outputs/tx_sourmash_sketch/{tx_run_accession}.sig', 
+        tx_sig = 'outputs/tx_sourmash_sketch_filtered/{tx_run_accession}.sig', 
         gx_sig = 'outputs/gx_sourmash_sketch/{gx_accession}.sig', 
     output: "outputs/subtract_sourmash_sketch/{tx_run_accession}-minus-{gx_accession}-k{ksize}.sig"
     conda: "envs/sourmash.yml"

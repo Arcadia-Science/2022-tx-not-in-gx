@@ -30,6 +30,12 @@ rule download_mus_genome:
     wget -O {output} https://ftp.ncbi.nlm.nih.gov/genomes/genbank/vertebrate_mammalian/Mus_musculus/latest_assembly_versions/GCA_000001635.9_GRCm39/GCA_000001635.9_GRCm39_genomic.fna.gz
     '''
 
+rule download_octopus_genome:
+    output: "inputs/genomes/GCF_001194135.1_genomic.fna.gz"
+    conda: "envs/wget.yml"
+    shell:'''
+    wget -O {output} https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/194/135/GCF_001194135.1_Octopus_bimaculoides_v2_0/GCF_001194135.1_Octopus_bimaculoides_v2_0_genomic.fna.gz
+    '''
 rule sourmash_sketch_gx:
     input: "inputs/genomes/{gx_accession}_genomic.fna.gz"
     output: "outputs/gx_sourmash_sketch/{gx_accession}.sig"
